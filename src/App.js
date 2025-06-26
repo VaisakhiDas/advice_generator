@@ -1,13 +1,31 @@
 import React from 'react';
+import axios from 'axios';
 
 class App extends React.Component {
-    state = { prompt: '' };
+    state = { advice: '' };
 
+    componentDidMount() {
+        this.fetchAdvice();
+    }
+
+    fetchAdvice = async () => {
+        axios.get('https://api.adviceslip.com/advice')
+            .then(response => {
+                const advice = response.data.slip.advice;
+                this.setState({ advice});
+                console.log({ advice });
+            })
+            .catch(error => {
+                console.log('Error fetching advice:', error);
+            });
+    }
     render() {
+        const { advice } = this.state;
         return (
-            <div>
-                <h1>Welcome to My React App</h1>
-                <p>This is a simple React application.</p>
+            <div className='app'>
+                <div className='card'>
+                    <h1 className='heading'>{advice}</h1>
+                </div>
             </div>
         );
     }

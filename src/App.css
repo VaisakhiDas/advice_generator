@@ -1,0 +1,18 @@
+#root, html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.app {
+    height: 100%;
+    display: flex;
+    background: url("./images/bg_image.jpg");
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
