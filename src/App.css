@@ -1,18 +1,141 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 #root, html, body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
 .app {
     height: 100%;
     display: flex;
-    background: url("./images/bg_image.jpg");
+    background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.6)), url("./images/bg_image.jpg") center/cover no-repeat;
     background-size: cover;
     background-position: center;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
+.card {
+    background: rgba(255, 255, 255, 0.697);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 45%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+.heading {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    color: #333;
+    display: flex;
+    align-items: center;
+    height: 582px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.heading.fade-in {
+    opacity: 1;
+}
+
+.button {
+    position: relative;
+    outline: none;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    height: 200px;
+    width: 210px;
+    opacity: 2;
+    background-color: transparent;
+    border: 2px solid rgba(22, 76, 167, 0.6);
+  }
+    
+  .button span {
+    color: #164ca7;
+    font-size: 13px;
+    font-weight: 550;
+    letter-spacing: 0.7px;
+  }
+    
+  .button:hover {
+    animation: rotate 0.7s ease-in-out both;
+  }
+    
+  .button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+    
+  @keyframes storm {
+    0% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+    25% {
+      transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+    50% {
+      transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+    75% {
+      transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  }  
+
+  @media only screen and (max-width: 600px) {
+    .card {
+        width: 80%;
+        height: 30%;
+    }
+    .heading {
+        font-size: 1.4rem;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+  }
